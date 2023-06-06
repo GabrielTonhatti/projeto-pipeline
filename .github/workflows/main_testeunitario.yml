@@ -24,6 +24,9 @@ jobs:
       - name: Build with Maven
         run: mvn clean install
 
+      - name: Run Tests
+        run: mvn test
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
         with:
@@ -50,4 +53,4 @@ jobs:
           app-name: 'testeUnitario'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B65806A4BF2B47628D0C244D02DFD824 }}
-          package: '*.war'
+          package: '*.jar'
